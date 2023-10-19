@@ -1,75 +1,40 @@
-# Nuxt 3 Minimal Starter
+# Cosmos Robot Works Competition Ranking Interface
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+##### This is a simple interface that shows the team rankings and points.
 
-## Setup
+&nbsp;
 
-Make sure to install the dependencies:
+# Usage:
+
+### ❗️ Bun needs to be installed in order to run this project. You can install bun from [here](https://bun.sh).
+
+## 1. Install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## 2. Build the project:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
 bun run build
 ```
 
-Locally preview production build:
+## 3. Run the project:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 4. Finally, open it in your browser:
+
+#### Go to: http://localhost:3000
+
+# Tech Stack:
+
+- Nuxt 3
+- Bun
+
+&nbsp;&nbsp;
+
+# Thank you!
