@@ -14,9 +14,9 @@ export default defineEventHandler(async (event) => {
   //     console.log(fileData.length);
   //   });
 
-  const promise = new Promise((resolve, reject) => {
+  const promise: any = new Promise((resolve, reject) => {
     fs.createReadStream("public/data.csv", "utf-8")
-      .pipe(csv({ separator: ";" }))
+      .pipe(csv({ separator: "," }))
       .on("data", (data: any) => {
         fileData.push(data);
       })
@@ -28,7 +28,19 @@ export default defineEventHandler(async (event) => {
       });
   });
 
+  let newData: Array<any> = [];
+  let oldData: any = await promise;
+
+  for (let index = 0; index < oldData.length; index++) {
+    const element = oldData[index];
+    if (element.point > oldData[index + 1].point) {
+      newData.push(element);
+    }
+  }
+  console.log(newData);
+
   return {
     data: await promise,
+    newData: newData,
   };
 });

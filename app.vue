@@ -11,25 +11,32 @@
       <p>{{ item.point }}</p>
       <p>{{ item.rank }}</p>
     </div>
-    <img class="crw-logo" src="./public/crwLogo.png" />
   </div>
+  <img class="crw-logo" src="./crwLogo.png" />
 </template>
 
 <script setup lang="ts">
 const results: any = ref();
 
-const { data } = await useFetch("/api/getData");
-results.value = data.value?.data;
-
-setInterval(async () => {
+try {
   const { data } = await useFetch("/api/getData");
   results.value = data.value?.data;
-}, 5000);
+} catch (err) {
+  console.log(err);
+}
+
+const refresh = async () => {
+  const { data } = await useFetch("/api/getData");
+  results.value = data.value?.data;
+  console.log(results.value);
+};
+
+setInterval(() => refresh(), 5000);
 </script>
 
 <style>
 * {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Comic Sans", Courier, monospace;
   margin: 0;
   padding: 0;
 }
@@ -37,6 +44,8 @@ setInterval(async () => {
 body {
   background-color: #000000;
   color: #ffffff;
+  width: 100%;
+  height: 100%;
 }
 .main-heading {
   margin: 50px auto;
@@ -60,7 +69,7 @@ body {
 .team p {
   font-size: 2rem;
   padding: 1rem;
-  text-align: center;
+  text-align: left;
   width: 33%;
   height: 50%;
   color: #1b053d;
@@ -74,8 +83,8 @@ body {
 }
 .crw-logo {
   position: absolute;
-  right: 15px;
-  bottom: 15px;
+  right: 10px;
+  bottom: -25px;
   width: 15%;
   aspect-ratio: 1/1;
   filter: drop-shadow(0px 0px 20px #ff1212);
